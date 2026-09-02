@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,noimageindex">
+<title>Two Coffees, One Table</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600&display=swap">
+<style>
+:root{
+  --ink:#0F1219;
+  --ink-2:#171B25;
+  --paper:#EFE9DE;
+  --muted:#8A8FA0;
+  --amber:#E9A83C;
+  --ember:#B8442A;
+  --rule:rgba(233,168,60,.28);
+  --step:clamp(1rem,.6rem + 1.6vw,1.5rem);
+  --display:"Amiri","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --body:"Cairo","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--paper);
+  font-family:var(--body);
+  font-weight:300;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,video{display:block;max-width:100%}
+
+/* ---- progress rail ---- */
+.rail{position:fixed;left:0;top:0;width:2px;height:100vh;background:rgba(239,233,222,.08);z-index:40}
+.rail span{display:block;width:100%;height:0;background:linear-gradient(180deg,var(--amber),var(--ember));transition:height .1s linear}
+
+/* ---- hero ---- */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden;padding:var(--step)}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;
+  filter:saturate(.9) contrast(1.03);transform:scale(1.08);animation:drift 14s ease-out forwards}
+.hero-scrim{position:absolute;inset:0;background:
+  radial-gradient(120% 80% at 50% 25%,rgba(15,18,25,.18) 0%,rgba(15,18,25,.72) 62%,rgba(15,18,25,.96) 100%)}
+.hero-inner{position:relative;text-align:center;max-width:22ch}
+.hero-eyebrow{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--amber);margin:0 0 1.6rem}
+.hero-name{font-family:var(--display);font-weight:400;font-size:clamp(3rem,1.6rem + 7vw,6rem);
+  line-height:1.02;margin:0;text-wrap:balance}
+.hero-line{font-family:var(--display);font-style:italic;color:var(--paper);opacity:.86;
+  font-size:clamp(1.05rem,.9rem + .7vw,1.4rem);line-height:1.6;margin:1.8rem 0 0}
+.cue{position:absolute;bottom:2.2rem;left:50%;translate:-50% 0;display:flex;flex-direction:column;
+  align-items:center;gap:.7rem;color:var(--muted);font-size:.66rem;letter-spacing:.3em;text-transform:uppercase}
+.cue i{display:block;width:1px;height:44px;background:linear-gradient(180deg,var(--amber),transparent);
+  animation:fall 2.4s ease-in-out infinite}
+@keyframes drift{from{transform:scale(1.08)}to{transform:scale(1)}}
+@keyframes fall{0%,100%{opacity:.25;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ---- chapters ---- */
+.chapter{padding:clamp(4rem,10vh,8rem) var(--step);max-width:1080px;margin:0 auto;
+  display:flex;flex-direction:column;gap:2.2rem;align-items:center}
+.label{display:flex;align-items:center;gap:1rem;width:100%;max-width:640px}
+.label i{flex:1;height:1px;background:var(--rule)}
+.label b{font-weight:600;font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:var(--amber);white-space:nowrap}
+.label small{font-family:var(--display);font-size:1rem;color:var(--muted);white-space:nowrap}
+.frames{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;width:100%}
+.frame{position:relative;border:0;padding:0;background:none;cursor:zoom-in;flex:1 1 260px;max-width:420px;
+  border-radius:2px;overflow:hidden;box-shadow:0 18px 50px -22px rgba(0,0,0,.9)}
+.frame img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.3,1)}
+.frame:hover img,.frame:focus-visible img{transform:scale(1.03)}
+.frame:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.line{font-family:var(--display);font-size:clamp(1.25rem,1rem + 1.3vw,2rem);line-height:1.65;
+  text-align:center;max-width:26ch;margin:0;text-wrap:balance}
+
+/* ---- video ---- */
+.reel{padding:clamp(3rem,8vh,6rem) var(--step);display:grid;place-items:center}
+.reel video{width:100%;max-width:420px;border-radius:2px;box-shadow:0 18px 50px -22px rgba(0,0,0,.9);background:#000}
+
+/* ---- reasons ---- */
+.reasons{padding:clamp(5rem,12vh,9rem) var(--step);max-width:640px;margin:0 auto}
+.reasons h2{font-family:var(--display);font-weight:400;font-size:clamp(1.8rem,1.3rem + 2vw,2.8rem);
+  margin:0 0 3rem;text-align:center}
+.reasons ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2rem}
+.reasons li{display:grid;grid-template-columns:auto 1fr;gap:1.4rem;align-items:baseline}
+.reasons em{font-style:normal;font-variant-numeric:tabular-nums;font-size:.72rem;letter-spacing:.2em;
+  color:var(--amber);padding-top:.45rem}
+.reasons p{margin:0;font-family:var(--display);font-size:clamp(1.05rem,.95rem + .5vw,1.35rem);line-height:1.7}
+
+/* ---- letter ---- */
+.letter{position:relative;min-height:100svh;display:grid;place-items:center;
+  padding:clamp(4rem,10vh,8rem) var(--step);overflow:hidden}
+.letter-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 25%;opacity:.22;filter:grayscale(.3)}
+.letter-scrim{position:absolute;inset:0;background:
+  linear-gradient(180deg,var(--ink) 0%,rgba(15,18,25,.82) 40%,rgba(15,18,25,.94) 100%)}
+.letter-inner{position:relative;max-width:34ch;text-align:center;display:flex;flex-direction:column;gap:2rem}
+.letter-mark{width:38px;height:1px;background:var(--ember);margin:0 auto}
+.letter-body{font-family:var(--display);font-size:clamp(1.1rem,1rem + .6vw,1.5rem);line-height:1.85;margin:0;
+  white-space:pre-line}
+.sign{font-family:var(--display);font-style:italic;color:var(--amber);font-size:1.05rem;margin:0}
+
+/* ---- blanks ---- */
+.b{color:var(--amber);border-bottom:1px dashed var(--rule);padding:0 .18em;font-family:var(--body);
+  font-size:.82em;letter-spacing:.06em;white-space:nowrap}
+
+/* ---- lightbox ---- */
+.lightbox{position:fixed;inset:0;z-index:60;background:rgba(8,10,14,.96);display:grid;place-items:center;
+  padding:var(--step);border:0;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.lightbox.on{opacity:1;pointer-events:auto}
+.lightbox img{max-width:100%;max-height:92svh;object-fit:contain;border-radius:2px}
+.lightbox button{position:absolute;top:1rem;right:1rem;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--rule);background:rgba(15,18,25,.7);color:var(--paper);font-size:1.2rem;cursor:pointer}
+.lightbox button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+
+/* ---- reveal ---- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:640px){
+  .frames{gap:.7rem}
+  .frame{flex:1 1 100%;max-width:none}
+  .label{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  .hero-img{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="rail"><span></span></div>
+<header class="hero">
+  <img class="hero-img" src="img/01-hero.jpg" alt="">
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">for you</p>
+    <h1 class="hero-name" dir="auto">Habibty &lt;3</h1>
+    <p class="hero-line" dir="auto">جَرى حُبُّها مَجرى دَمي في مَفاصِلي فَأَصبَحَ لي عَن كُلِّ شُغلٍ بِها شُغلُ</p>
+  </div>
+  <div class="cue"><i></i>scroll</div>
+</header>
+<section class="chapter">
+  <div class="label rv"><b>The mirror</b><small dir="rtl">المرآة</small><i></i></div>
+  <div class="frames rv"><button class="frame" type="button" aria-label="Open photo"><img src="img/02-mirror.jpg" alt="The mirror" loading="lazy"></button></div>
+  <p class="line rv" dir="auto">حسيت اني ماسك باقي عمري بين ايديا</p>
+</section>
+<section class="chapter">
+  <div class="label rv"><b>Our rings</b><small dir="rtl">خواتمنا</small><i></i></div>
+  <div class="frames rv"><button class="frame" type="button" aria-label="Open photo"><img src="img/03-rings-up.jpg" alt="Our rings" loading="lazy"></button></div>
+  <p class="line rv" dir="auto">عمري ما حسيت بفرحة قد فرحتي وانا شايفك مبسوطة</p>
+</section>
+<section class="reel rv">
+  <video src="video/v1.mp4" controls playsinline preload="metadata"></video>
+</section>
+<section class="chapter">
+  <div class="label rv"><b>Two coffees</b><small dir="rtl">قهوتين</small><i></i></div>
+  <div class="frames rv"><button class="frame" type="button" aria-label="Open photo"><img src="img/05-cafe-hands.jpg" alt="Two coffees" loading="lazy"></button></div>
+  <p class="line rv" dir="auto">هنا قررت اني لازم البسك خاتم و اتجوزك</p>
+</section>
+<section class="chapter">
+  <div class="label rv"><b>The curb</b><small dir="rtl">الرصيف</small><i></i></div>
+  <div class="frames rv"><button class="frame" type="button" aria-label="Open photo"><img src="img/07-curb.jpg" alt="The curb" loading="lazy"></button><button class="frame" type="button" aria-label="Open photo"><img src="img/08-streetlights.jpg" alt="The curb" loading="lazy"></button></div>
+  <p class="line rv" dir="auto">هنا حسيت اني مع اقرب حد ليا فعلا و الي تستاهل اسافرلها من اخر الدنيا</p>
+</section>
+<section class="reel rv">
+  <video src="video/v2.mp4" controls playsinline preload="metadata"></video>
+</section>
+<section class="chapter">
+  <div class="label rv"><b>Burgers, late</b><small dir="rtl">برجر بالليل</small><i></i></div>
+  <div class="frames rv"><button class="frame" type="button" aria-label="Open photo"><img src="img/09-burgers.jpg" alt="Burgers, late" loading="lazy"></button></div>
+  <p class="line rv" dir="auto">هنا مكنش معايا فلوس و حسيت انك هتبقي سندي فعلا و هنتبسط سوا بأي حاجة المهم نبقي سوا</p>
+</section>
+<section class="chapter">
+  <div class="label rv"><b>El Maadi</b><small dir="rtl">المعادي</small><i></i></div>
+  <div class="frames rv"><button class="frame" type="button" aria-label="Open photo"><img src="img/10-el-maadi.jpg" alt="El Maadi" loading="lazy"></button></div>
+  <p class="line rv" dir="auto">مكان غريب حصل فيه يوم من اجمل ايام حياتي و اسوئهم</p>
+</section>
+<section class="chapter">
+  <div class="label rv"><b>The match</b><small dir="rtl">الماتش</small><i></i></div>
+  <div class="frames rv"><button class="frame" type="button" aria-label="Open photo"><img src="img/11-the-match.jpg" alt="The match" loading="lazy"></button></div>
+  <p class="line rv" dir="auto">كنت مبسوط اوي معاكي هنا رغم ان حصل حاجات كتير محبيناهاش اليوم ده بس فاكر الحلو بس</p>
+</section>
+<section class="chapter">
+  <div class="label rv"><b>Your hand on my head</b><small dir="rtl">إيدك على راسي</small><i></i></div>
+  <div class="frames rv"><button class="frame" type="button" aria-label="Open photo"><img src="img/12-hand-on-head.jpg" alt="Your hand on my head" loading="lazy"></button></div>
+  <p class="line rv" dir="auto">I&#x27;m genuinely happy when you&#x27;re with me</p>
+</section>
+<section class="chapter">
+  <div class="label rv"><b>Salam station</b><small dir="rtl">موقف السلام</small><i></i></div>
+  <div class="frames rv"><button class="frame" type="button" aria-label="Open photo"><img src="img/13-salam.jpg" alt="Salam station" loading="lazy"></button></div>
+  <p class="line rv" dir="auto">اجمل اقصر ديت فحياتي</p>
+</section>
+<section class="reel rv">
+  <video src="video/v3.mp4" controls playsinline preload="metadata"></video>
+</section>
+<section class="chapter">
+  <div class="label rv"><b>Late</b><small dir="rtl">الليل</small><i></i></div>
+  <div class="frames rv"><button class="frame" type="button" aria-label="Open photo"><img src="img/14-lamplight.jpg" alt="Late" loading="lazy"></button><button class="frame" type="button" aria-label="Open photo"><img src="img/15-table.jpg" alt="Late" loading="lazy"></button></div>
+  <p class="line rv" dir="auto">بحب اوي الصورة الي بتاخديها لدراعاتنا بحس اني حاضنك</p>
+</section>
+<section class="chapter">
+  <div class="label rv"><b>Out</b><small dir="rtl">برة</small><i></i></div>
+  <div class="frames rv"><button class="frame" type="button" aria-label="Open photo"><img src="img/16-night-out.jpg" alt="Out" loading="lazy"></button></div>
+  <p class="line rv" dir="auto">شفايفك بحبها اوي</p>
+</section>
+<section class="chapter">
+  <div class="label rv"><b>The black hoodie</b><small dir="rtl">الهودي الأسود</small><i></i></div>
+  <div class="frames rv"><button class="frame" type="button" aria-label="Open photo"><img src="img/17-hoodie-a.jpg" alt="The black hoodie" loading="lazy"></button><button class="frame" type="button" aria-label="Open photo"><img src="img/18-hoodie-b.jpg" alt="The black hoodie" loading="lazy"></button></div>
+  <p class="line rv" dir="auto">فرحت اوي لما اتبسطي بيه و حسيت لأول مرة انك بتاعتي فعلا لما لبستيه</p>
+</section>
+<section class="reel rv">
+  <video src="video/v4.mp4" controls playsinline preload="metadata"></video>
+</section>
+<section class="reasons">
+  <h2 class="rv" dir="auto">Things I keep thinking about</h2>
+  <ol><li class="rv"><em>01</em><p dir="auto">How you&#x27;re the best thing that ever happened to me</p></li><li class="rv"><em>02</em><p dir="auto">You&#x27;re the love of my life</p></li><li class="rv"><em>03</em><p dir="auto">I wanna spend the rest of my life with you</p></li><li class="rv"><em>04</em><p dir="auto">how to marry you as fast as possible</p></li><li class="rv"><em>05</em><p dir="auto">how I&#x27;m gonna wake up someday with the LOML next to me</p></li></ol>
+</section>
+<section class="chapter">
+  <div class="label rv"><b>More</b><small dir="rtl">المزيد</small><i></i></div>
+  <div class="frames rv" style="flex-direction:column;align-items:center"><video src="video/v5.mp4" controls playsinline preload="metadata"></video><video src="video/v6.mp4" controls playsinline preload="metadata"></video><video src="video/v7.mp4" controls playsinline preload="metadata"></video></div>
+</section>
+<section class="letter">
+  <img class="letter-img" src="img/20-letter.jpg" alt="">
+  <div class="letter-scrim"></div>
+  <div class="letter-inner rv">
+    <span class="letter-mark"></span>
+    <p class="letter-body" dir="auto">To the love of my life ❤️
+
+I just want you to know how grateful I am to have you. You make my life brighter just by being in it, and I hope you always know how deeply you’re loved. No matter what happens, you’ll always have a special place in my heart. ❤️
+
+I love you, always.</p>
+    <p class="sign" dir="auto">ZOZO</p>
+  </div>
+</section>
+<div class="lightbox" role="dialog" aria-modal="true" aria-label="Photo"><button type="button" aria-label="Close">&times;</button><img src="" alt=""></div>
+<script>
+(function(){
+  var rail=document.querySelector('.rail span');
+  function prog(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    rail.style.height=(h>0?Math.min(1,window.scrollY/h)*100:0)+'%';
+  }
+  window.addEventListener('scroll',prog,{passive:true});
+  window.addEventListener('resize',prog);
+  prog();
+
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{rootMargin:'0px 0px -12% 0px',threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  var box=document.querySelector('.lightbox'),
+      boxImg=box.querySelector('img'),
+      last=null;
+  function open(src,alt){
+    last=document.activeElement; boxImg.src=src; boxImg.alt=alt||'';
+    box.classList.add('on'); box.querySelector('button').focus();
+  }
+  function close(){ box.classList.remove('on'); boxImg.src=''; if(last) last.focus(); }
+  document.querySelectorAll('.frame').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var img=btn.querySelector('img'); open(img.src,img.alt);
+    });
+  });
+  box.addEventListener('click',function(e){ if(e.target!==boxImg) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&box.classList.contains('on')) close(); });
+
+  document.querySelectorAll('video').forEach(function(v){
+    var vio=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(!e.isIntersecting && !v.paused) v.pause(); });
+    },{threshold:.25});
+    vio.observe(v);
+  });
+})();
+</script>
+</body>
+</html>
